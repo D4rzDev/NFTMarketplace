@@ -31,7 +31,7 @@ const Navbar = () => {
         <ul className={ !nav ? 'hidden' : ' absolute w-screen h-screen px-6 pt-6 bg-black bg-opacity-80 md:hidden'}>
             <div className=' flex flex-col items-center justify-center pt-20 '>
               <a className=' no-underline py-2 hover:border-b-2 border-[#D6EF0E]'>Marketplace</a>
-              <a className=' no-underline py-2 hover:border-b-2 border-[#D6EF0E]'>Artits</a>
+              <a className=' no-underline py-2 hover:border-b-2 border-[#D6EF0E]'>Artists</a>
               <a className=' no-underline py-2 hover:border-b-2 border-[#D6EF0E]'>Community</a>
               <a className=' no-underline py-2 hover:border-b-2 border-[#D6EF0E] pb-10'>Collections</a>
               <a href="" className=' no-underline bg-[#D6EF0E] text-white text-center  w-[200px] text-sm font-bold py-2 px-4 rounded-md'>Sign Up</a>
