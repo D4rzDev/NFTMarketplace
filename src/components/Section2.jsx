@@ -1,78 +1,70 @@
-import React, { useEffect} from 'react'
-import { AiOutlineClockCircle} from 'react-icons/ai'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import { AiOutlineClockCircle } from 'react-icons/ai'
+import useSectionAnimations from '../hooks/useSectionAnimations'
+
+const nfts = [
+  { img: '/nft1.png', name: 'Cyberpunk Cocomo', price: '490ETH', endsIn: '03:24:56' },
+  { img: '/nft2.png', name: 'Charge, Qi tiao yu', price: '490ETH', endsIn: '03:24:56' },
+  { img: '/nft3.png', name: 'Surgeon, Josh Rife', price: '490ETH', endsIn: '03:24:56' },
+]
 
 const Section2 = () => {
-    useEffect(() => {
-    AOS.init({
-    });
-  }, []);
+  const scope = useSectionAnimations()
+
   return (
-    <div className=' flex flex-col items-center justify-center px-10 pt-10 bg-black bg-opacity-80 pb-10 md:px-20 md:pb-20'>
-        <div data-aos="zoom-in-left" className=' flex flex-col items-center justify-between md:flex-row lg:gap-[500px]'>
-            <h1 className=' text-2xl text-center font-extrabold pb-4 mt-0 mb-0 md:pr-48 lg:w-[500px]'><span className='text-[#D6EF0E]'>Amazing</span>  and Super Unique Art of This<span className='text-[#D6EF0E]'>Week</span></h1>
-            <a className=' no-underline text-center text-white w-20 text-sm mt-0 mb-0 bg-[#D6EF0E] py-1 px-2 rounded-md' href=""> See All</a>
+    <section ref={scope} className='bg-black bg-opacity-80'>
+      <div className='mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-16 lg:px-20'>
+        <div
+          data-reveal='left'
+          className='flex flex-col items-center gap-4 md:flex-row md:justify-between'
+        >
+          <h1 className='text-center text-2xl font-extrabold md:max-w-md md:text-left'>
+            <span className='text-[#D6EF0E]'>Amazing</span> and Super Unique Art of This{' '}
+            <span className='text-[#D6EF0E]'>Week</span>
+          </h1>
+          <a
+            className='rounded-md bg-[#D6EF0E] px-4 py-2 text-center text-sm font-bold text-black no-underline'
+            data-hover
+            href=''
+          >
+            See All
+          </a>
         </div>
 
-        <div className=' flex flex-col items-center justify-center md:flex-row md:gap-4'>
-            <div data-aos="zoom-in-right" className=' flex flex-col items-center justify-center mt-10 rounded-lg gap-4 bg-[#040d22] px-2 py-2'>
-            <div className=' flex flex-col items-center justify-center'>
-                <img src="/nft1.png" alt="" />
-                <div className=' flex flex-row items-cente justify-center gap-14'>
-                    <p className=' text-lg font-bold'>Cyberpunk Cocomo</p>
-                    <p className=' flex pt-2 text-xs font-normal'>490ETH</p>
-                </div>
+        <div className='mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+          {nfts.map((nft) => (
+            <div
+              key={nft.name}
+              data-reveal='up'
+              data-lift
+              className='flex flex-col rounded-xl bg-[#040d22] p-3'
+            >
+              <img className='w-full rounded-lg' src={nft.img} alt={nft.name} />
+              <div className='flex flex-row items-center justify-between pt-3'>
+                <p className='text-base font-bold lg:text-lg'>{nft.name}</p>
+                <p className='text-xs font-normal'>{nft.price}</p>
+              </div>
 
-                 <div className=' flex flex-row items-center justify-center pt-4 gap-28'>
-                    <div className=' flex flex-col'>
-                        <p className=' text-start text-[10px] text-gray-500'> Ending In</p>
-                        <p className=' flex flex-row items-center text-[10px] text-gray-500'><AiOutlineClockCircle size={20}/>03:24:56</p>
-                    </div>
-                    <p className=' text-[#D6EF0E] border-2 border-[#D6EF0E] rounded-md px-2 py-1 text-xs'>Place a Bid</p>
+              <div className='flex flex-row items-center justify-between pt-4'>
+                <div className='flex flex-col'>
+                  <p className='text-[10px] text-gray-500'>Ending In</p>
+                  <p className='flex flex-row items-center gap-1 text-[10px] text-gray-500'>
+                    <AiOutlineClockCircle size={16} />
+                    {nft.endsIn}
+                  </p>
                 </div>
+                <a
+                  className='rounded-md border-2 border-[#D6EF0E] px-3 py-1 text-xs text-[#D6EF0E] no-underline'
+                  data-hover
+                  href=''
+                >
+                  Place a Bid
+                </a>
+              </div>
             </div>
+          ))}
         </div>
-
-        <div data-aos="zoom-in-right" className=' flex flex-col items-center justify-center mt-10 rounded-lg gap-4 bg-[#040d22] px-2 py-2'>
-            <div className=' flex flex-col items-center justify-center'>
-                <img src="/nft2.png" alt="" />
-                <div className=' flex flex-row items-cente justify-center gap-14'>
-                    <p className=' text-lg font-bold'>Charge, Qi tiao yu</p>
-                    <p className=' flex pt-2 text-xs font-normal'>490ETH</p>
-                </div>
-
-                 <div className=' flex flex-row items-center justify-center pt-4 gap-28'>
-                    <div className=' flex flex-col'>
-                        <p className=' text-start text-[10px] text-gray-500'> Ending In</p>
-                        <p className=' flex flex-row items-center text-[10px] text-gray-500'><AiOutlineClockCircle size={20}/>03:24:56</p>
-                    </div>
-                    <p className=' text-[#D6EF0E] border-2 border-[#D6EF0E] rounded-md px-2 py-1 text-xs'>Place a Bid</p>
-                </div>
-            </div>
-        </div>
-
-        <div data-aos="zoom-in-right" className=' flex flex-col items-center justify-center mt-10 rounded-lg gap-4 bg-[#040d22] px-2 py-2'>
-            <div className=' flex flex-col items-center justify-center'>
-                <img src="/nft3.png" alt="" />
-                <div className=' flex flex-row items-cente justify-center gap-14'>
-                    <p className=' text-lg font-bold'>Surgeon, Josh Rife</p>
-                    <p className=' flex pt-2 text-xs font-normal'>490ETH</p>
-                </div>
-
-                 <div className=' flex flex-row items-center justify-center pt-4 gap-28'>
-                    <div className=' flex flex-col'>
-                        <p className=' text-start text-[10px] text-gray-500'> Ending In</p>
-                        <p className=' flex flex-row items-center text-[10px] text-gray-500'><AiOutlineClockCircle size={20}/>03:24:56</p>
-                    </div>
-                    <p className=' text-[#D6EF0E] border-2 border-[#D6EF0E] rounded-md px-2 py-1 text-xs'>Place a Bid</p>
-                </div>
-            </div>
-        </div>
-
-        </div>
-
-    </div>
+      </div>
+    </section>
   )
 }
 

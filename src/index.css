@@ -20,8 +20,15 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body{
-  background-image: url("/Bg.png");
-  height: 100%;
+html {
   scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  background-image: url("/Bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
 }

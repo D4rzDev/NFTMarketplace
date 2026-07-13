@@ -1,23 +1,38 @@
-import React from 'react'
-import { AiFillFacebook, AiFillLinkedin, AiFillYoutube} from 'react-icons/ai'
-import { BiSolidPaperPlane} from 'react-icons/bi'
+import { AiFillFacebook, AiFillLinkedin, AiFillYoutube } from 'react-icons/ai'
+import { BiSolidPaperPlane } from 'react-icons/bi'
+import useSectionAnimations from '../hooks/useSectionAnimations'
+
+const socials = [
+  { icon: AiFillFacebook, label: 'Facebook' },
+  { icon: AiFillLinkedin, label: 'LinkedIn' },
+  { icon: BiSolidPaperPlane, label: 'Telegram' },
+  { icon: AiFillYoutube, label: 'YouTube' },
+]
 
 const Footer = () => {
+  const scope = useSectionAnimations()
+
   return (
-    <div className=' flex flex-col items-center justify-center  bg-black bg-opacity-80 pt-10 pb-10 px-10 border-none'>
-       <p className=' text-sm text-gray-500 text-center md:px-40 '>Discover NFTs by category, track the latest drop, and and follow the collections you love. Enjoy it!</p>
-       <div className=' flex flex-row items-center justify-center gap-4 pt-6'>
-        <AiFillFacebook size={30}/>
-        <AiFillLinkedin size={30}/>
-        <BiSolidPaperPlane  size={30}/>
-        <AiFillYoutube size={30}/>
-       </div>
-       <div className=' flex flex-row items-center justify-center gap-4 pt-6'>
-        <p className=' text-xs font-sans text-gray-500'>© Copyright 2023 - davixq</p>
-        <p  className=' text-xs font-sans text-gray-500'>Privacy Policy</p>
-        <p  className=' text-xs font-sans text-gray-500'>Terms & Conditions</p>
-       </div>
-    </div>
+    <footer ref={scope} className='bg-black bg-opacity-80'>
+      <div className='mx-auto flex max-w-7xl flex-col items-center px-6 py-12 md:px-12 lg:px-20'>
+        <p data-reveal='up' className='max-w-xl text-center text-sm text-gray-500'>
+          Discover NFTs by category, track the latest drop, and follow the collections you love.
+          Enjoy it!
+        </p>
+        <div data-reveal='up' className='flex flex-row items-center gap-4 pt-6'>
+          {socials.map(({ icon: Icon, label }) => (
+            <a key={label} aria-label={label} className='text-white hover:text-[#D6EF0E]' data-hover href=''>
+              <Icon size={30} />
+            </a>
+          ))}
+        </div>
+        <div className='flex flex-row flex-wrap items-center justify-center gap-4 pt-6'>
+          <p className='font-sans text-xs text-gray-500'>© Copyright 2023 - davixq</p>
+          <p className='font-sans text-xs text-gray-500'>Privacy Policy</p>
+          <p className='font-sans text-xs text-gray-500'>Terms & Conditions</p>
+        </div>
+      </div>
+    </footer>
   )
 }
 

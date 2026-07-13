@@ -1,29 +1,38 @@
-import React, {useEffect} from 'react'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import useSectionAnimations from '../hooks/useSectionAnimations'
 
 const Section3 = () => {
-  useEffect(() => {
-    AOS.init({
-    });
-  }, []);
+  const scope = useSectionAnimations()
+
   return (
-    <div className=' flex flex-col items-center justify-center  bg-black bg-opacity-80 pt-10 pb-10 px-10 border-none md:flex-row md:px-20 md:pb-20 md:gap-20'>
-      <div data-aos="zoom-in-right" className=' flex flex-col items-center justify-between'>
-        <div className=' flex flex-col items-center justify-center'>
-            <h1 className=' text-center text-2xl font-extrabold'>Create And Sell Your  <span className='text-[#D6EF0E]'>Best NFTs</span></h1>
-            <p className=' text-xs font-sans text-gray-500 text-center lg:w-[300px]'>Start exploring the world of digital art and NFTs today and take control of your digital assets with confidence!</p>
+    <section ref={scope} className='bg-black bg-opacity-80'>
+      <div className='mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 px-6 py-12 md:flex-row md:px-12 md:py-16 lg:gap-20 lg:px-20'>
+        <div data-reveal='left' className='flex flex-col items-center md:items-start'>
+          <h1 className='text-center text-2xl font-extrabold md:text-left lg:text-3xl'>
+            Create And Sell Your <span className='text-[#D6EF0E]'>Best NFTs</span>
+          </h1>
+          <p className='max-w-sm pt-2 text-center font-sans text-xs text-gray-500 md:text-left md:text-sm'>
+            Start exploring the world of digital art and NFTs today and take control of your
+            digital assets with confidence!
+          </p>
+
+          <div className='flex flex-row items-center gap-4 pt-6'>
+            <a className='rounded-md bg-[#D6EF0E] px-4 py-2 text-sm font-bold text-black no-underline' data-hover href=''>
+              Create Now
+            </a>
+            <a className='px-4 py-2 text-sm font-bold no-underline' data-hover href=''>
+              Learn More
+            </a>
+          </div>
         </div>
 
-        <div className=' flex flex-row items-center justify-center pt-6'>
-            <a className=' text-sm font-bold px-4 py-2 bg-[#D6EF0E] rounded-md' href="">Create Now</a>
-            <a className=' text-sm font-bold px-4 py-2 ' href="">Learn More</a>
-        </div>
+        <img
+          data-reveal='right'
+          className='w-full max-w-[320px] md:max-w-[280px] lg:max-w-[360px]'
+          src='/create.png'
+          alt='Create and sell NFTs'
+        />
       </div>
-        
-      <img data-aos="zoom-in-left" className=' pt-8 md:h-[250px] lg:h-[300px]' src="/create.png" alt="" />
-
-    </div>
+    </section>
   )
 }
 
